@@ -68,3 +68,7 @@ input, select {
   color: #E40712;
   text-decoration: none;
 }
+
+#encounterDisplay {
+    color: #26282A;
+}
