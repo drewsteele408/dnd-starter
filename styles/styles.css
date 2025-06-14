@@ -1,7 +1,12 @@
+:root{
+    --color-primary: #26282A;
+    --color-secondary: #E40712;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #26282A;
+  background-color: var(--color-primary);
   color: #fff;
 }
 
@@ -28,7 +33,7 @@ p {
 
 nav a.btn, .btn {
   display: inline-block;
-  background-color: #E40712;
+  background-color: var(--color-secondary);
   color: white;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -65,10 +70,10 @@ input, select {
 .back-link {
   display: inline-block;
   margin-top: 1.5rem;
-  color: #E40712;
+  color: var(--color-secondary);
   text-decoration: none;
 }
 
 #encounterDisplay {
-    color: #26282A;
+    color: var(--color-primary);
 }
