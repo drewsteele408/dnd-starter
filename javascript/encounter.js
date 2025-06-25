@@ -1,8 +1,9 @@
-const generatBtn = document.getElementById("generateBtn");
+const generateBtn = document.getElementById("generateBtn");
 const encounterDisplay = document.getElementById("encounterDisplay");
 
 async function getRandomMonster() {
     try {
+        encounterDisplay.innerHTML = `<div class="animated-square"></div><p>Loading your encounter...</p>`;
         // get the total number of monsters
         const response = await fetch("https://api.open5e.com/monsters/");
         const data = await response.json();
@@ -25,7 +26,7 @@ async function getRandomMonster() {
         displayMonster(randomMonster);
     } catch(error){
         console.error("Error fetching monster", error);
-        encounterDisplay.innerHTML = `<p>Oops! Could not fetch an ecnounter. Try again.</p>`;
+        encounterDisplay.innerHTML = `<p>Oops! Could not fetch an encounter. Try again.</p>`;
     }
 }
 
@@ -41,4 +42,4 @@ async function getRandomMonster() {
         `;
     }
 
-    generatBtn.addEventListener("click", getRandomMonster);
+    generateBtn.addEventListener("click", getRandomMonster);

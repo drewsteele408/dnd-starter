@@ -6,7 +6,11 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--color-primary);
+  background-image: url('../resources/tiamat.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   color: #fff;
 }
 
@@ -17,8 +21,12 @@ nav {
 .container {
   max-width: 600px;
   margin: auto;
+  margin-top: 20px;
   padding: 2rem;
   text-align: center;
+  background-color: #26282A;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
@@ -39,6 +47,7 @@ nav a.btn, .btn {
   text-decoration: none;
   margin: 0.5rem;
   border-radius: 8px;
+  font-weight: bold;
 }
 
 .btn:hover {
@@ -76,4 +85,41 @@ input, select {
 
 #encounterDisplay {
     color: var(--color-primary);
+}
+
+.character{
+  color: white;
+  border: 5px solid black;
+  border-radius: 8px;
+  background-color: #E40712;
+  margin-bottom: 30px;
+}
+
+.animated-square {
+  width: 17px;
+  height: 17px;
+  background-color: #E40712;
+  position: absolute;
+  top: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 650px) {
+  .container{
+    border-radius: 0px;
+  }
+  nav{
+    display: grid;
+  }
 }
