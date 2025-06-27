@@ -19,6 +19,7 @@ nav {
 }
 
 .container {
+  display: grid;
   max-width: 600px;
   margin: auto;
   margin-top: 20px;
@@ -50,7 +51,19 @@ nav a.btn, .btn {
   font-weight: bold;
 }
 
-.btn:hover {
+.btn-del {
+  display: inline-block;
+  background-color: #ffc857;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  margin: 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+
+}
+
+.btn:hover, .btn-del:hover {
   background-color: white;
   color: black;
 }
@@ -115,11 +128,61 @@ input, select {
   }
 }
 
+.dropdown, .dropdown-btn, .dropdown-content{
+  display: none;
+}
+
 @media (max-width: 650px) {
   .container{
     border-radius: 0px;
   }
   nav{
+    display: none;
+  }
+  .dropdown {
     display: grid;
+    position: relative;
+    text-align: center;
+  }
+
+  .dropdown-btn {
+    display: grid;
+    background-color: #E40712;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E40712;
+    color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    background: #E40712;
+    transition: background 0.3s;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f2f2f2;
+    color: black;
   }
 }

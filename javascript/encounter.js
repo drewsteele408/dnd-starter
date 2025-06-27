@@ -1,6 +1,21 @@
 const generateBtn = document.getElementById("generateBtn");
 const encounterDisplay = document.getElementById("encounterDisplay");
 
+function displayCharacter(character) {
+    characterDisplay.innerHTML = `<p>Existing Character:</p>
+      <div class="character">
+        <p>${character.name}</p>
+        <p>${character.race}, Level ${character.level} ${character.class}</p>
+      </div>`;
+  }
+
+
+const saved = localStorage.getItem("character");
+if (saved) {
+  const character = JSON.parse(saved);
+  displayCharacter(character);
+  console.log("Loaded character:", character);
+}
 async function getRandomMonster() {
     try {
         encounterDisplay.innerHTML = `<div class="animated-square"></div><p>Loading your encounter...</p>`;

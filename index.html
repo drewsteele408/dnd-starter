@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="javascript/welcome.js" defer></script>
 </head>
 <body class="welcome-page">
     <div class="container">
@@ -13,7 +14,17 @@
         <nav>
             <a href="encounter.html" class="btn">Generate Encounter</a> 
             <a href="character.html" class="btn">Create Character</a>
+            <a href="storedCharacter.html" class="btn">Update Character</a>
         </nav>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown()">Menu</button>
+            <div class="dropdown-content" id="dropdownContent">
+              <a href="encounter.html">Generate Encounter</a>
+              <a href="character.html">Create Character</a>
+              <a href="storedCharacter.html">Update Character</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
