@@ -100,6 +100,12 @@ input, select {
     color: var(--color-primary);
 }
 
+#cr-filter {
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffc857;
+}
+
 .character{
   color: white;
   border: 5px solid black;

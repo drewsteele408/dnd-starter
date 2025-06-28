@@ -1,5 +1,6 @@
 const generateBtn = document.getElementById("generateBtn");
 const encounterDisplay = document.getElementById("encounterDisplay");
+const crFilter = document.getElementById("cr-filter");
 
 function displayCharacter(character) {
     characterDisplay.innerHTML = `<p>Existing Character:</p>
@@ -16,12 +17,23 @@ if (saved) {
   displayCharacter(character);
   console.log("Loaded character:", character);
 }
+
 async function getRandomMonster() {
     try {
         encounterDisplay.innerHTML = `<div class="animated-square"></div><p>Loading your encounter...</p>`;
         // get the total number of monsters
-        const response = await fetch("https://api.open5e.com/monsters/");
-        const data = await response.json();
+
+            // read the filter 
+        const crValue = crFilter.value;
+        const baseUrl = new URL("https://api.open5e.com/monsters/");
+        if(crValue) {
+            baseUrl.searchParams.set("cr", crValue);
+            
+        }
+
+        // fetch count and first page
+        const initialRes = await fetch(baseUrl)
+        const data = await initialRes.json();
         const totalCount = data.count;
 
         // get results of how many pages are available 
@@ -30,8 +42,11 @@ async function getRandomMonster() {
         // pick a random monster page 
         const totalPages = Math.ceil(totalCount / pageSize);
         const randomPage = Math.floor(Math.random() * totalPages) + 1;
-        const pageResponse = await fetch(`https://api.open5e.com/monsters/?page=${randomPage}`);
-        const pageData = await pageResponse.json();
+        baseUrl.searchParams.set("page", randomPage);
+
+        // fetch the random page with cr filter 
+        const pageRes = await fetch(baseUrl);
+        const pageData = await pageRes.json();
 
         // pick a random monster from the page 
         const monsters = pageData.results;
