@@ -125,6 +125,77 @@ input, select {
   animation: spin 2s linear infinite;
 }
 
+.back-link {
+  color: white;
+}
+
+.nav-container {
+  position: relative;
+  background: #333;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;                
+  height: 100vh;               
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;           
+  transform: translateX(-100%); 
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;                  
+}
+.nav-menu.nav-active {
+  transform: translateX(0);
+}
+
+.nav-menu li {
+  margin: 2rem 0;
+  list-style: none;
+}
+
+.hamburger {
+  position: relative;
+  z-index: 2;                  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.hamburger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle .line2 {
+  opacity: 0;
+}
+
+.hamburger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 @keyframes spin {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -142,9 +213,11 @@ input, select {
   .container{
     border-radius: 0px;
   }
-  nav{
+
+  .menu-buttons {
     display: none;
   }
+
   .dropdown {
     display: grid;
     position: relative;
@@ -191,4 +264,5 @@ input, select {
     background-color: #f2f2f2;
     color: black;
   }
+
 }
