@@ -6,12 +6,32 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="javascript/welcome.js" defer></script>
+    <script type="module" src="javascript/main.js" defer></script>
 </head>
+
+ <header>
+        <nav>
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="character.html">Character</a></li>
+                    <li><a href="encounter.html">Encounter</a></li>
+                    <li><a href="storedCharacter.html">Update Character</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
 <body class="welcome-page">
     <div class="container">
         <h1>Welcome to our D&D Toolkit</h1>
         <p>Your assistant for epic adventures. Generate encounters and manage characters with ease!</p>
-        <nav>
+        <nav class="menu-buttons">
             <a href="encounter.html" class="btn">Generate Encounter</a> 
             <a href="character.html" class="btn">Create Character</a>
             <a href="storedCharacter.html" class="btn">Update Character</a>
